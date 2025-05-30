@@ -1,0 +1,24 @@
+{
+  "train_batch_size": 256,
+  "train_micro_batch_size_per_gpu": 2,
+  "steps_per_print": 20,
+  "bf16": {
+        "enabled": true
+   },
+
+  "zero_optimization": {
+    "stage": 2,
+    "allgather_partitions": true,
+    "reduce_scatter": true,
+    "allgather_bucket_size": 50000000,
+    "reduce_bucket_size": 50000000,
+    "overlap_comm": true,
+    "contiguous_gradients": true
+  },
+
+  "tensorboard": {
+    "enabled": true,
+    "output_path": "/lpai/output/tensorboard/asllr/",
+    "job_name": "qwen1.5-14B__lr5E-4__llamapro{12}"
+  }
+}
